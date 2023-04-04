@@ -12,3 +12,30 @@
 в указанном порядке (красный, желтый, зеленый).
 Проверить работу примера, создав экземпляр и вызвав описанный метод.
 """
+
+
+import os
+import time
+
+
+
+class TrafficLight:
+    __color = ('red', 7)
+
+    def running(self):
+        colors = [('red', 7), ('yellow', 3), ('green', 7)]
+        current_light = 0
+        while True:
+            os.system('cls')
+            print(f'Текущий цвет: {self.__color[0]}')
+            time.sleep(self.__color[1])
+            if current_light < 2:
+                current_light += 1
+            else:
+                current_light = 0
+            self.__color = colors[current_light]
+
+
+traffic_light = TrafficLight()
+traffic_light.running()
+
