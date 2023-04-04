@@ -11,3 +11,34 @@
 **Ввод:** пара-ра-рам рам-пам-папам па-ра-па-да
     **Вывод:** Парам пам-пам
 """
+
+
+class Poem:
+    def __init__(self, content):
+        self.content = content
+
+    def __get_vowels(self, fraze):
+        vowels = 0
+        for letter in fraze:
+            if letter.lower() in ('а', 'я', 'у', 'ю', 'о', 'е', 'ё', 'э', 'и', 'ы'):
+                vowels += 1
+        return vowels
+
+    def check_ritm(self):
+        frazes = self.content.split()
+        ritm = True
+        if len(frazes) > 0:
+            vowels = self.__get_vowels(frazes[0])
+            for i in range(1, len(frazes)):
+                if vowels != self.__get_vowels(frazes[i]):
+                    ritm = False
+        if ritm:
+            return 'Парам пам-пам'
+        return 'Пам парам'
+
+    def __str__(self):
+        return self.check_ritm()
+
+
+poem = Poem('пара-ра-рам рам-пам-папам па-ра-па-да')
+print(poem)

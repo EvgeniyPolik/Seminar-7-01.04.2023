@@ -18,3 +18,28 @@
 5 10 15 20 25 30
 6 12 18 24 30 36
 """
+
+
+class OperationTable:
+    def __init__(self, operation, num_rows, num_columns):
+        self.operation = operation
+        self.num_rows = num_rows
+        self.num_columns = num_columns
+
+    def __str__(self):
+        result = ''
+        for i in range(self.num_rows):
+            for j in range(self.num_columns):
+                result += str(eval('(lambda x, y: ' + self.operation + f')({i + 1}, {j + 1})')).rjust(3, ' ')
+            result += '\n'
+        return result
+
+
+def print_operation_table(operation, num_rows=6, num_columns=6):
+    obj = OperationTable(operation, num_rows, num_columns)
+    print(obj)
+
+
+oper = input('Введите функцию, бинарную функцию (Напр: x * y): ')
+print_operation_table(oper)
+
