@@ -17,7 +17,7 @@ str(self) - вызывается функциями str, print и format. Воз
 class Worker:
     _income = {'wage': 0, 'bonus': 0}
 
-    def __init__(self, name, surname, position, income):
+    def __init__(self, name, surname, position):
         self.name = name
         self.surname = surname
         self.position = position
@@ -25,7 +25,7 @@ class Worker:
 
 class Position(Worker):
     def __init__(self, name, surname, position, income):
-        super().__init__(name, surname, position, income)
+        super().__init__(name, surname, position)
         self._income = income
 
     def get_full_name(self):
