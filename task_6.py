@@ -40,6 +40,6 @@ def print_operation_table(operation, num_rows=6, num_columns=6):
     print(obj)
 
 
-oper = input('Введите функцию,бинарную функцию (Напр: x * y): ')
+oper = input('Введите функцию, бинарную функцию (Напр: x * y): ')
 print_operation_table(oper)
 
